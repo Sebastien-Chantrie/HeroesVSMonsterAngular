@@ -1,0 +1,62 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.container {
+  margin: 0;
+  padding: 0;
+  height: 98vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(../../assets/dgbackground.png);
+  background-size: cover;
+  overflow: hidden;
+}
+
+.card-content {
+    text-align: center;
+    background-color: burlywood;
+    padding: 10%;
+    border-radius: 10px;
+    border: 4px solid #7f5f1b;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+h1, h2 {
+  color: #fff;
+  font-family: 'Goudy Bookletter 1911', sans-serif;
+}
+
+h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #444;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 18px;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #666;
+}
+
+button:active {
+  background-color: #333;
+}
