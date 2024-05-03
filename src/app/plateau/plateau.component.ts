@@ -6,6 +6,7 @@ import { PlateauService } from '../Services/plateau2-d.service';
   templateUrl: './plateau.component.html',
   styleUrls: ['./plateau.component.css']
 })
+
 export class PlateauComponent implements OnInit {
   plateau: boolean[][];
   positionPion: { x: number, y: number } = { x: 0, y: 0 };
@@ -45,7 +46,6 @@ export class PlateauComponent implements OnInit {
 
       alert('Combat');
       this.plateau = this.plateauService.generatePlateauWithSpecialCases(10,25);
-
     }
   }
 

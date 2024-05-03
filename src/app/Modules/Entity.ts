@@ -1,10 +1,6 @@
-import { Injectable } from '@angular/core';
+
 import { Dice } from './Dice';
 
-
-Injectable({
-  providedIn: 'root'
-})
 
 export interface Inventaire {
     cuir: number;
@@ -44,6 +40,7 @@ export abstract class Entity {
         let tabResult: number[] = new Array(4);
         let stats: number = 0;
         for(let i: number = 0; i < tabResult.length; i++){
+            console.log(this.dice6)
             tabResult[i] = this.dice6.LaunchDice();
         }
         tabResult.sort()

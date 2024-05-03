@@ -17,7 +17,6 @@ import { Dice } from './Modules/Dice';
     AppRoutingModule
   ],
   providers: [
-    [Dice],
     provideClientHydration(),
   ],
   bootstrap: [AppComponent]
