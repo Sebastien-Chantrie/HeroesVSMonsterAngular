@@ -14,7 +14,6 @@ import { FightDataService } from '../Services/fight-data.service';
 export class FightComponent implements OnInit {
   hero: Heros;
   monster: Monster;
-  previousPosition: { x: number, y: number } = { x: 0, y: 0 }; // Initialisez previousPosition
 
   constructor(
     private characterCreationService: CharacterCreationService,
@@ -35,19 +34,12 @@ export class FightComponent implements OnInit {
     this.checkHealth();
   }
 
-  restorePositionAfterFight(): void {
-    this.previousPosition = {...this.fightDataService.positionPionBeforeFight}
-    console.log(this.previousPosition);
-  }
-
   createNextMonster(): void {
     this.monster = this.monsterCreationService.CreateRandomMonster();
   }
 
   checkHealth(): void {
     if (this.monster.pointDeVieActuel <= 0) {
-      this.restorePositionAfterFight();
-      this.hero.position = { x: this.previousPosition.x, y: this.previousPosition.y };
       this.createNextMonster();
       this.router.navigate(['/plateau']);
     } else if (this.hero.pointDeVieActuel <= 0) {

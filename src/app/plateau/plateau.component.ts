@@ -13,7 +13,6 @@ export class PlateauComponent implements OnInit {
   hero!: Heros;
   plateau: boolean[][];
   positionPion: { x: number, y: number } = { x: 0, y: 0 };
-  positionPionBeforeFight: { x: number, y: number } = { x: 0, y: 0 };
 
   constructor(
     private plateauService: PlateauService,
@@ -25,6 +24,10 @@ export class PlateauComponent implements OnInit {
 
   ngOnInit(): void {
     this.plateau = this.plateauService.generatePlateauWithSpecialCases(10,25);
+    if(this.fightDataService.positionPionBeforeFight)
+    {
+      this.positionPion = this.fightDataService.positionPionBeforeFight
+    }
   }
 
   @HostListener('window:keydown', ['$event'])
@@ -50,6 +53,7 @@ export class PlateauComponent implements OnInit {
       alert('Vous ouvrez la boutique');
       return;
     }
+
     if (this.plateau[this.positionPion.x][this.positionPion.y] === false) {
       this.fightDataService.positionPionBeforeFight = { ...this.positionPion };
       this.router.navigate(['/fight']);
@@ -70,12 +74,6 @@ export class PlateauComponent implements OnInit {
       this.positionPion.x = nouvellePositionX;
       this.positionPion.y = nouvellePositionY;
       this.ControlePosition();
-    }
-  }
-
-  restorePositionAfterFight() {
-    if (this.positionPionBeforeFight) {
-      this.positionPion = this.positionPionBeforeFight;
     }
   }
 }
