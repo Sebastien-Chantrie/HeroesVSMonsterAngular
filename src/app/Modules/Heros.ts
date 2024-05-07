@@ -8,12 +8,10 @@ export enum Race {
 
 export class Heros extends Entity {
     race: Race;
-    position: { x: number, y: number };
 
     constructor(hero : Race, inventaire : Inventaire){
         super(inventaire)
         this.race = hero;
-        this.position = { x: 0, y: 0 };
     }
 
   RecupererInventaire(cible : Monster)
