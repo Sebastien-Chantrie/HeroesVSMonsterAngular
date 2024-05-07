@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { PlateauComponent } from './plateau/plateau.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { FightComponent } from './fight/fight.component';
+import { GameOverComponent } from './game-over/game-over.component';
+import { ShopComponent } from './shop/shop.component';
 
 @NgModule({
   declarations: [
@@ -12,6 +14,8 @@ import { FightComponent } from './fight/fight.component';
     PlateauComponent,
     HomePageComponent,
     FightComponent,
+    GameOverComponent,
+    ShopComponent,
   ],
   imports: [
     BrowserModule,

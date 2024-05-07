@@ -51,7 +51,7 @@ export abstract class Entity {
     }
 
     attack(cible : Entity) {
-        let damage : number = cible.pointDeVieActuel - this.dice4.LaunchDice() + this.Modificator(this.force);
+        let damage : number = this.dice4.LaunchDice() + this.Modificator(this.force);
         cible.pointDeVieActuel -= damage;
     }
 

@@ -18,6 +18,7 @@ export class Heros extends Entity {
   {
       this.inventaire.cuir += cible.inventaire.cuir;
       this.inventaire.gold += cible.inventaire.gold;
+      this.inventaire.potion += cible.inventaire.potion;
   }
   RegenLifePoint(){
     this.pointDeVieActuel = this.pointDeVieMaximum;

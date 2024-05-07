@@ -48,6 +48,7 @@ export class MonsterCreationService {
       this.monster.inventaire.potion = 0;
       this.monster.forceBonus = 0;
       this.monster.type = "Loup";
+      this.monster.pointDeVieActuel = 500;
     } else if (type === Type.Orc) {
       this.monster = new Monster(Type.Orc, inventaire);
       this.monster.enduranceBonus = 0;

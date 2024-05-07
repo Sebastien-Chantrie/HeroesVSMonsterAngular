@@ -50,7 +50,7 @@ export class PlateauComponent implements OnInit {
 
   ControlePosition() {
     if (this.positionPion.x === 0 && this.positionPion.y === 9 ) {
-      alert('Vous ouvrez la boutique');
+      this.router.navigate(['/shop']);
       return;
     }
 

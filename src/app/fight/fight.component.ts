@@ -30,7 +30,9 @@ export class FightComponent implements OnInit {
 
   heroAttack(): void {
     this.hero.attack(this.monster);
+    this.monster.attack(this.hero);
     console.log(`${this.hero} attaque ${this.monster}, PV DU MONSTRE : ${this.monster.pointDeVieActuel}`);
+    console.log(`${this.monster} attaque ${this.hero}, PV DU HEROS : ${this.hero.pointDeVieActuel}`);
     this.checkHealth();
   }
 
@@ -43,16 +45,30 @@ export class FightComponent implements OnInit {
       this.createNextMonster();
       this.router.navigate(['/plateau']);
     } else if (this.hero.pointDeVieActuel <= 0) {
+      this.createNextMonster();
       this.router.navigate(['/game-over']);
     }
   }
   
 
-  healPotion(cible : Heros) {
-    // WIP
+  healPotion() {
+    if ( this.hero.inventaire.potion != 0){
+      this.hero.pointDeVieActuel = this.hero.pointDeVieMaximum;
+    }
+    else { alert("vous n'avez pas de potion")}
   }
 
   tryToLeave() {
-    // WIP
+    let randomNumber = Math.floor(Math.random() * 4);
+    console.log(randomNumber)
+    if (randomNumber == 3){
+      this.createNextMonster();
+      this.router.navigate(['/plateau']);
+    }
+    else {
+      alert("Vous n'avez pas réussi a vous enfuir")
+      this.monster.attack(this.hero);
+      this.checkHealth();
+    }
   }
 }

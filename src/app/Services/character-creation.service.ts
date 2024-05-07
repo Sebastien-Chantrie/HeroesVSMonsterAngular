@@ -17,6 +17,7 @@ export class CharacterCreationService {
       hero = new Heros(Race.Humain, inventaire);
       hero.enduranceBonus = 1;
       hero.forceBonus = 1;
+      hero.inventaire.potion = 5;
     } else if (race === Race.Nain) {
       hero = new Heros(Race.Nain, inventaire);
       hero.enduranceBonus = 2;
