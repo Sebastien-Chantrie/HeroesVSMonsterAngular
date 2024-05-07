@@ -13,12 +13,8 @@ export class HomePageComponent {
 
   choisirRace(race: Race) {
     const hero = this.characterCreationService.createHero(race);
-
-    // Enregistrez le héros dans le service de création de personnage pour pouvoir y accéder dans d'autres composants si nécessaire
     this.characterCreationService.setHero(hero);
     console.log(this.characterCreationService.getHero())
-
-    // Naviguez vers la page du plateau de jeu
     this.router.navigate(['/plateau']);
   }
 }

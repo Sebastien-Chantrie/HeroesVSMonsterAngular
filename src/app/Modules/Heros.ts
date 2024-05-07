@@ -8,27 +8,13 @@ export enum Race {
 
 export class Heros extends Entity {
     race: Race;
+    position: { x: number, y: number };
 
     constructor(hero : Race, inventaire : Inventaire){
         super(inventaire)
         this.race = hero;
+        this.position = { x: 0, y: 0 };
     }
-
-  override GetForceBonus(): number {
-    if (this.race === Race.Humain) {
-      this.forceBonus = 1;
-    }
-    return this.forceBonus;
-  }
-
-  override GetEnduranceBonus(): number {
-    if (this.race === Race.Humain) {
-      this.enduranceBonus = 1;
-    } else if (this.race === Race.Nain) {
-      this.enduranceBonus = 2;
-    }
-    return this.enduranceBonus;
-  }
 
   RecupererInventaire(cible : Monster)
   {

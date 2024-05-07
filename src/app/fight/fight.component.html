@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="monster">
+        <div class="LifepointMonster">PDV{{ monster.pointDeVieActuel }}</div>
+        <div class="typemonster">{{monster.type}}</div>
+        <div class="StatsMonster">Force / {{ monster.force + hero.forceBonus }} - Endurance / {{ monster.endurance }}</div>
+        <img src ="">tete du monstre
+    </div>
+    <div class="menu">
+        <button (click)="heroAttack()">Attaque</button>
+        <button (click)="healPotion(this.hero)">Potion de soin</button>
+        <button (click)="tryToLeave()">Fuite</button>
+    </div>
+    <div class="hero">        
+        <div class="LifepointHeros">PDV {{ hero.pointDeVieActuel }}</div>
+        <div class="nbpotion">Potion / {{ hero.inventaire.potion }}</div>
+        <div class="StatsHeros">Force / {{ hero.force + hero.forceBonus }} - Endurance / {{ hero.endurance }}</div>
+        <img>
+    </div>
+</div>

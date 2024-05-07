@@ -4,13 +4,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PlateauComponent } from './plateau/plateau.component';
 import { HomePageComponent } from './home-page/home-page.component';
-import { Dice } from './Modules/Dice';
+import { FightComponent } from './fight/fight.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PlateauComponent,
     HomePageComponent,
+    FightComponent,
   ],
   imports: [
     BrowserModule,
