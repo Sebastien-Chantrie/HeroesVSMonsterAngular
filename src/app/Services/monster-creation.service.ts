@@ -9,11 +9,12 @@ export class MonsterCreationService {
   private monster: Monster;
   dice4 = new Dice(4);
   dice6 = new Dice(6);
-  type: string;
+  type: string | undefined;
+  imagePath!: string;
 
   constructor() {
     this.monster = this.CreateRandomMonster();
-    this.type = "undefined";
+    this.type = undefined;
   }
 
   CreateRandomMonster() {
@@ -21,10 +22,13 @@ export class MonsterCreationService {
     const randomNumber = Math.floor(Math.random() * 3);
     if (randomNumber === 0) {
       monster = this.createMonster(Type.Dragon);
+      this.imagePath = "../../assets/dragon.png"
     } else if (randomNumber === 1) {
       monster = this.createMonster(Type.Loup);
+      this.imagePath = "../../assets/wolf.png"
     } else {
       monster = this.createMonster(Type.Orc);
+      this.imagePath = "../../assets/orc.png"
     }
     return monster;
   }
@@ -34,30 +38,19 @@ export class MonsterCreationService {
 
     if (type === Type.Dragon) {
       this.monster = new Monster(Type.Dragon, inventaire);
-      this.monster.enduranceBonus = 1;
       this.monster.inventaire.cuir = this.dice4.LaunchDice();
       this.monster.inventaire.gold = this.dice6.LaunchDice();
-      this.monster.inventaire.potion = 0;
-      this.monster.forceBonus = 0;
       this.monster.type = "Dragon";
     } else if (type === Type.Loup) {
       this.monster = new Monster(Type.Loup, inventaire);
-      this.monster.enduranceBonus = 0;
       this.monster.inventaire.cuir = this.dice4.LaunchDice();
-      this.monster.inventaire.gold = 0;
-      this.monster.inventaire.potion = 0;
-      this.monster.forceBonus = 0;
       this.monster.type = "Loup";
-      this.monster.pointDeVieActuel = 500;
     } else if (type === Type.Orc) {
       this.monster = new Monster(Type.Orc, inventaire);
-      this.monster.enduranceBonus = 0;
-      this.monster.forceBonus = 1;
       this.monster.inventaire.cuir = this.dice4.LaunchDice();
-      this.monster.inventaire.gold = 0;
-      this.monster.inventaire.potion = 0;
       this.monster.type = "Orc";
     }
+    this.monster.pointDeVieActuel/2;
     return this.monster;
   }
 

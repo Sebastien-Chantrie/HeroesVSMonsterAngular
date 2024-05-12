@@ -14,43 +14,92 @@ import { FightDataService } from '../Services/fight-data.service';
 export class FightComponent implements OnInit {
   hero: Heros;
   monster: Monster;
+  img : string;
 
   constructor(
     private characterCreationService: CharacterCreationService,
     private monsterCreationService: MonsterCreationService,
     private router: Router,
     private fightDataService: FightDataService,
+    
   ) {
     this.hero = this.characterCreationService.getHero();
     this.monster = this.monsterCreationService.getMonster();
+    this.img = this.monsterCreationService.imagePath;
   }
 
   ngOnInit(): void {
   }
 
   heroAttack(): void {
+    this.disableUserActions();
     this.hero.attack(this.monster);
-    this.monster.attack(this.hero);
-    console.log(`${this.hero} attaque ${this.monster}, PV DU MONSTRE : ${this.monster.pointDeVieActuel}`);
-    console.log(`${this.monster} attaque ${this.hero}, PV DU HEROS : ${this.hero.pointDeVieActuel}`);
-    this.checkHealth();
+    this.checkIfIsDead();
+    if (this.monster.pointDeVieActuel > 0) {
+      setTimeout(() => {
+        this.monster.attack(this.hero);
+        this.checkIfIsDead();
+        this.enableUserActions();
+      }, 1000);
+    } else {
+      this.createNextMonster();
+      this.enableUserActions();
+    }
   }
 
+ disableUserActions() : void {
+    const buttons = document.querySelectorAll('.action-button');
+    buttons.forEach(button => {
+      button.setAttribute('disabled', 'disabled');
+    });
+  }
+  
+enableUserActions() : void {
+    const buttons = document.querySelectorAll('.action-button');
+    buttons.forEach(button => {
+      button.removeAttribute('disabled');
+    });
+  }
+
+  calculateHealthBarWidthHero(): string {
+    return ((this.hero.pointDeVieActuel / this.hero.pointDeVieMaximum) * 100) + '%';
+  }
+  calculateHealthBarWidthMonster(): string {
+    return ((this.monster.pointDeVieActuel / this.monster.pointDeVieMaximum) * 100) + '%';
+  }
+    
   createNextMonster(): void {
     this.monster = this.monsterCreationService.CreateRandomMonster();
   }
 
-  checkHealth(): void {
+  checkIfIsDead(): void {
     if (this.monster.pointDeVieActuel <= 0) {
-      this.createNextMonster();
+      this.hero.xp += 5;
+      this.levelUp();
+      this.takeInventory();
       this.router.navigate(['/plateau']);
     } else if (this.hero.pointDeVieActuel <= 0) {
       this.createNextMonster();
       this.router.navigate(['/game-over']);
     }
   }
-  
 
+  levelUp(){
+    if (this.hero.xp >= this.hero.nbXpForLevelUp) {
+      this.hero.nbXpForLevelUp *= 2;
+      this.hero.xp = 0;
+      this.hero.level += 1;
+      this.hero.endurance += 5;
+      this.hero.force += 5;
+    }
+  }
+
+  takeInventory(){
+    this.hero.inventaire.cuir += this.monster.inventaire.cuir
+    this.hero.inventaire.gold += this.monster.inventaire.gold
+    console.log(this.hero.inventaire);
+  }
+  
   healPotion() {
     if ( this.hero.inventaire.potion != 0){
       this.hero.pointDeVieActuel = this.hero.pointDeVieMaximum;
@@ -68,7 +117,7 @@ export class FightComponent implements OnInit {
     else {
       alert("Vous n'avez pas réussi a vous enfuir")
       this.monster.attack(this.hero);
-      this.checkHealth();
+      this.checkIfIsDead();
     }
   }
 }

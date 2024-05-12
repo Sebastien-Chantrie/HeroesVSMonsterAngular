@@ -4,42 +4,58 @@
        url('../../assets/web\ fonts/1942-webfont.woff') format('woff');
 }
 
-  .game-over-container {
-    overflow: hidden;
-    width: 97vw;
-    height: 93vh;
-    text-align: center;
-    align-items: center;
-    font-family: 'Arial', sans-serif;
-    background-color: #1c1c1c;
-    color: #ffffff;
-    padding: 20px;
-  }
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
 
-  .game-over-title {
-    margin-top:18%;
-    margin-bottom: 20px; 
-    font-family:'1942';
-    font-size: 140px;
-  }
+.container {
+  margin: 0;
+  padding: 0;
+  height: 98vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(../../assets/dgbackground.png);
+  background-size: cover;
+  overflow: hidden;
+}
+
+.card-content {
+    text-align: center;
+    background-color: burlywood;
+    padding: 10%;
+    border-radius: 10px;
+    border: 4px solid #7f5f1b;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+
+h1 {
+  font-size: 95px;
+  margin-bottom: 20px;
+  color: black;
+  font-family: '1942';
   
-  .game-over-button {
-    background-color: #333;
-    color: white;
-    border: none; 
-    padding: 35px 50px; 
-    font-size: 18px; 
-    cursor: pointer; 
-    border-radius: 10px; 
-    text-transform: uppercase; 
-    font-family: '1942', sans-serif; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    transition: background-color 0.3s;
-  }
-  
-  .game-over-button:hover {
-    background-color: white;
-    color: black;
-  }
-  
-  
+}
+
+
+button {
+  background-color:burlywood;
+  color:black;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 35px;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: '1942';
+}
+
+button:hover {
+  background-color:black;
+  color: burlywood;
+}

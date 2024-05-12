@@ -8,19 +8,15 @@ export enum Race {
 
 export class Heros extends Entity {
     race: Race;
+    xp : number;
+    nbXpForLevelUp : number;
+    level : number;
 
     constructor(hero : Race, inventaire : Inventaire){
         super(inventaire)
         this.race = hero;
+        this.xp = 0;
+        this.level = 1;
+        this.nbXpForLevelUp = 10;
     }
-
-  RecupererInventaire(cible : Monster)
-  {
-      this.inventaire.cuir += cible.inventaire.cuir;
-      this.inventaire.gold += cible.inventaire.gold;
-      this.inventaire.potion += cible.inventaire.potion;
-  }
-  RegenLifePoint(){
-    this.pointDeVieActuel = this.pointDeVieMaximum;
-  }
 }

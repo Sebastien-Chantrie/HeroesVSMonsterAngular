@@ -1,0 +1,80 @@
+    @font-face {
+        font-family: '1942';
+        src:
+            url('../../assets/web\ fonts/1942-webfont.woff') format('woff');
+    }    
+    
+    .container {
+        font-family:'1942';
+        background-image: url(../../assets/bgshop.png);
+        background-size: cover;
+        height:48vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+    .card-containt{
+        background-color:black;
+        text-align:center;
+        color:white;
+        padding-bottom: 15px;
+    }
+    
+    .healpot {
+        width: 5vw !important;
+        height: auto;
+    }
+
+    .nomargin{
+        margin-top:0 !important;
+    }
+
+    .gold {
+        width: 5vw !important;
+        height: auto;
+    }
+
+    .leather {
+        width: 4vw !important;
+        height: auto;
+    }
+
+    .message {
+        text-align:center;
+        font-size:1vw;
+        color:white;
+    }
+  
+  .inventory {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+  }
+
+  .goldmin{
+    width: 3vw;
+    margin-top:1vw;
+  }
+  
+  .action {
+    text-align:center;
+  }
+  .action button {
+    color:white;
+    font-family:'1942';
+    margin-right: 10px; 
+    padding: 10px 20px;
+    font-size: 2vw;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color:transparent;
+  }
+  
+
+  .action button:hover {
+    text-decoration: underline;
+  }
+  

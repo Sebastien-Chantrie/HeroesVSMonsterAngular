@@ -10,7 +10,7 @@ export interface Inventaire {
 
 export abstract class Entity {
   endurance: number;
-  enduranceBonus: number;
+  private enduranceBonus: number;
   force: number;
   forceBonus: number;
   pointDeVieMaximum: number;
@@ -22,7 +22,7 @@ export abstract class Entity {
   constructor(inventaire: Inventaire) {
     this.dice4 = new Dice(4);
     this.dice6 = new Dice(6);
-    this.endurance = this.CaculStats();
+    this.endurance = this.CaculStats() + 30;
     this.force = this.CaculStats();
     this.enduranceBonus = 0;
     this.forceBonus = 0;
@@ -31,10 +31,16 @@ export abstract class Entity {
     this.inventaire = inventaire;
   }
 
+  public set EnduranceBonus(value : number) {
+    this.enduranceBonus = value
+    this.pointDeVieMaximum = this.CalculLifePoint();
+    this.pointDeVieActuel = this.pointDeVieMaximum;
+  }
 
-    CalculLifePoint(): number{
-        return this.Modificator(this.endurance);
-    }
+
+  CalculLifePoint(){
+    return this.Modificator(this.endurance + this.enduranceBonus);
+  }
 
     CaculStats(): number {
         let tabResult: number[] = new Array(4);
@@ -51,7 +57,7 @@ export abstract class Entity {
     }
 
     attack(cible : Entity) {
-        let damage : number = this.dice4.LaunchDice() + this.Modificator(this.force);
+        let damage : number = this.dice4.LaunchDice() + this.Modificator(this.force + this.forceBonus);
         cible.pointDeVieActuel -= damage;
     }
 

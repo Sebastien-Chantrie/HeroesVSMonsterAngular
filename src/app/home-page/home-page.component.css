@@ -1,3 +1,9 @@
+@font-face {
+  font-family: '1942';
+  src:
+       url('../../assets/web\ fonts/1942-webfont.woff') format('woff');
+}
+
 html, body {
   height: 100%;
   margin: 0;
@@ -27,36 +33,33 @@ html, body {
 }
 
 h1, h2 {
-  color: #fff;
-  font-family: 'Goudy Bookletter 1911', sans-serif;
+  color: black;
+  font-family: '1942';
 }
 
 h1 {
-  font-size: 36px;
+  font-size: 46px;
   margin-bottom: 20px;
 }
 
 h2 {
-  font-size: 24px;
+  font-size: 34px;
   margin-bottom: 20px;
 }
 
 button {
-  background-color: #444;
-  color: #fff;
+  background-color:transparent;
+  color:black;
   border: none;
   border-radius: 5px;
   padding: 10px 20px;
-  font-size: 18px;
+  font-size: 35px;
   margin: 0 10px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  font-family: '1942';
 }
 
 button:hover {
-  background-color: #666;
-}
-
-button:active {
-  background-color: #333;
+  text-decoration: underline;
 }

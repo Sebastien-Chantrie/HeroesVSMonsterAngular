@@ -17,20 +17,24 @@ export class ShopComponent {
     private fightDataService: FightDataService) 
     {this.hero = this.characterCreationService.getHero();}
 
-  buyHealPot(){
+    sellLeather(){
+      if ( this.hero.inventaire.cuir > 0) {
+        this.hero.inventaire.cuir -= 1;
+        this.hero.inventaire.gold += 5;
+      }
+    }
+
+    buyHealPot(){
       if ( this.hero.inventaire.gold >= 10) {
-        this.hero.inventaire.potion +1
-        this.hero.inventaire.gold -10;
+        this.hero.inventaire.potion += 1
+        this.hero.inventaire.gold -= 10;
       }
       else {
         alert("Tu n'a pas assez d'argent.")
       }
-  }
+    } 
 
   returnPlateau(){
-    alert("A bientot !")
-    this.fightDataService.positionPionBeforeFight.y = this.fightDataService.positionPionBeforeFight.y -1;
     this.router.navigate(['/plateau']);
   }
-  
 }

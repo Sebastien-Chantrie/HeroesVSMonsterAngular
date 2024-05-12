@@ -49,10 +49,17 @@ export class PlateauComponent implements OnInit {
   }
 
   ControlePosition() {
-    if (this.positionPion.x === 0 && this.positionPion.y === 9 ) {
+    if (this.positionPion.x === 3 && this.positionPion.y === 8 ) {
+      this.fightDataService.positionPionBeforeFight = { ...this.positionPion };
       this.router.navigate(['/shop']);
       return;
     }
+
+    if (this.positionPion.x === 9 && this.positionPion.y === 1 ) {
+      this.router.navigate(['/donjon']);
+      return;
+    }
+
 
     if (this.plateau[this.positionPion.x][this.positionPion.y] === false) {
       this.fightDataService.positionPionBeforeFight = { ...this.positionPion };
@@ -61,11 +68,9 @@ export class PlateauComponent implements OnInit {
     }
   }
   
-
   deplacerPion(dx: number, dy: number) {
     const nouvellePositionX = this.positionPion.x + dx;
     const nouvellePositionY = this.positionPion.y + dy;
-    
     if (
       this.positionPion &&
       nouvellePositionX >= 0 && nouvellePositionX < this.plateau.length &&

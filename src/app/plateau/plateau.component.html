@@ -4,7 +4,9 @@
       <tr>
         <ng-container *ngFor="let case of ligne; let j = index">
           <td class='case'>
-            <div class="pion" *ngIf="i === positionPion.x && j === positionPion.y"></div>
+            <div class="pion" *ngIf="i === positionPion.x && j === positionPion.y">
+            <img class="displaypion"src="../../assets/pion.png" alt="">
+            </div>
             {{ case }}
           </td>
         </ng-container>

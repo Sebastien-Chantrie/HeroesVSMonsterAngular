@@ -1,19 +1,21 @@
 <div class="container">
     <div class="monster">
-        <div class="LifepointMonster">PDV{{ monster.pointDeVieActuel }}</div>
-        <div class="typemonster">{{monster.type}}</div>
-        <div class="StatsMonster">Force / {{ monster.force + hero.forceBonus }} - Endurance / {{ monster.endurance }}</div>
-        <img src ="">tete du monstre
+        <div class="health-bar">
+            <div class="health-bar-fill" [style.width]="calculateHealthBarWidthMonster()"></div>
+        </div>
+        <img [src]="img" class="characimg"> 
     </div>
     <div class="menu">
-        <button (click)="heroAttack()">Attaque</button>
-        <button (click)="healPotion()">Potion de soin</button>
-        <button (click)="tryToLeave()">Fuite</button>
+        <button class="action-button" (click)="heroAttack()">Attaque</button>
+        <button class="action-button" (click)="healPotion()">Potion de soin</button>
+        <button class="action-button" (click)="tryToLeave()">Fuite</button>
     </div>
-    <div class="hero">        
-        <div class="LifepointHeros">PDV {{ hero.pointDeVieActuel }}</div>
-        <div class="nbpotion">Potion / {{ hero.inventaire.potion }}</div>
-        <div class="StatsHeros">Force / {{ hero.force + hero.forceBonus }} - Endurance / {{ hero.endurance }}</div>
-        <img>
+    <div class="hero">    
+        <img src="../../assets/hero.png" class="characimg">
+        <span class="level">level : {{this.hero.level}}</span>
+        <div class="nbpotion"><img src="../../assets/healpot.png" class="healpot">x {{ hero.inventaire.potion }}</div>
+        <div class="health-bar">
+            <div class="health-bar-fill" [style.width]="calculateHealthBarWidthHero()"></div>
+        </div>
     </div>
 </div>

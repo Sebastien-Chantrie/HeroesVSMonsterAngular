@@ -1,5 +1,21 @@
-<p>Bienvenue aventurier, je vois que tu a {{this.hero.inventaire.gold}} gold
-    Veux tu acheter une potion de soin pour 10 gold ?
-    <button (click)="buyHealPot()">Oui</button>
-    <button (click)="returnPlateau()">Non</button>
-</p>
+<div class="container">
+    <div class="imgbg">
+        <div class="card-containt">
+            <div class="message">
+                <p class="nomargin">Bienvenue aventurier!<p>
+                <p>
+                </p> 
+            </div>
+            <div class="action">
+                <button (click)="buyHealPot()">Acheter potion  10 <img src="../../assets/gold.png" class="goldmin"></button>
+                <button (click)="sellLeather()">Vendre Cuir  5 <img src="../../assets/gold.png" class="goldmin"></button>
+                <button (click)="returnPlateau()">Partir</button>
+            </div>
+            <div class="displayinventory">
+                <span class="nbpotion"><img src="../../assets/healpot.png" class="healpot">x {{ hero.inventaire.potion }}</span>
+                <span class="nbgold"><img src="../../assets/gold.png" class="gold"> x {{hero.inventaire.gold}}</span>
+                <span class="nbleather"><img src="../../assets/leather.png" class="leather"> x {{hero.inventaire.cuir}}</span>
+            </div>
+        </div>
+    </div>
+</div>
