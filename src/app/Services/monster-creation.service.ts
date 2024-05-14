@@ -1,6 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Monster, Type } from '../Modules/Monster';
+import { Monster} from '../Modules/Monster';
 import { Dice } from '../Modules/Dice';
+
+export enum Type {
+  Loup,
+  Orc,
+  Dragon
+}
 
 @Injectable({
   providedIn: 'root'
@@ -35,20 +41,16 @@ export class MonsterCreationService {
 
   createMonster(type: Type): Monster {
     const inventaire = { cuir: 0, gold: 0, potion: 0 };
-
     if (type === Type.Dragon) {
-      this.monster = new Monster(Type.Dragon, inventaire);
+      this.monster = new Monster(inventaire);
       this.monster.inventaire.cuir = this.dice4.LaunchDice();
       this.monster.inventaire.gold = this.dice6.LaunchDice();
-      this.monster.type = "Dragon";
     } else if (type === Type.Loup) {
-      this.monster = new Monster(Type.Loup, inventaire);
+      this.monster = new Monster(inventaire);
       this.monster.inventaire.cuir = this.dice4.LaunchDice();
-      this.monster.type = "Loup";
     } else if (type === Type.Orc) {
-      this.monster = new Monster(Type.Orc, inventaire);
+      this.monster = new Monster(inventaire);
       this.monster.inventaire.cuir = this.dice4.LaunchDice();
-      this.monster.type = "Orc";
     }
     this.monster.pointDeVieActuel/2;
     return this.monster;

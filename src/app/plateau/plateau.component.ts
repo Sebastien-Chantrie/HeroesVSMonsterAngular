@@ -63,7 +63,7 @@ export class PlateauComponent implements OnInit {
 
     if (this.plateau[this.positionPion.x][this.positionPion.y] === false) {
       this.fightDataService.positionPionBeforeFight = { ...this.positionPion };
-      this.router.navigate(['/fight']);
+      this.router.navigate(['/forest']);
       this.plateau = this.plateauService.generatePlateauWithSpecialCases(10,25);
     }
   }

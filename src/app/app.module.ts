@@ -4,18 +4,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PlateauComponent } from './plateau/plateau.component';
 import { HomePageComponent } from './home-page/home-page.component';
-import { FightComponent } from './fight/fight.component';
 import { GameOverComponent } from './game-over/game-over.component';
 import { ShopComponent } from './shop/shop.component';
+import { ForestComponent } from './forest/forest.component';
+import { DonjonComponent } from './donjon/donjon.component';
+import { WinComponent } from './win/win.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PlateauComponent,
     HomePageComponent,
-    FightComponent,
+    ForestComponent,
     GameOverComponent,
     ShopComponent,
+    ForestComponent,
+    DonjonComponent,
+    WinComponent,
   ],
   imports: [
     BrowserModule,
