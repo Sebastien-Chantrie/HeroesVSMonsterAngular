@@ -5,7 +5,8 @@ import { Dice } from './Dice';
 export interface Inventaire {
     cuir: number;
     gold: number;
-    potion: number;
+    potionvie: number;
+    potionmana: number;
 }
 
 export abstract class Entity {
@@ -60,6 +61,8 @@ export abstract class Entity {
         let damage : number = this.dice4.LaunchDice() + this.Modificator(this.force + this.forceBonus);
         cible.pointDeVieActuel -= damage;
     }
+
+
 
     Modificator(stats:number) : number {
     if (stats < 5) {

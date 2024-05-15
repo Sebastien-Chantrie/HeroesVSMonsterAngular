@@ -24,9 +24,19 @@ export class ShopComponent {
       }
     }
 
+    buyManaPot(){
+      if ( this.hero.inventaire.gold >= 10) {
+        this.hero.inventaire.potionmana += 1
+        this.hero.inventaire.gold -= 10;
+      }
+      else {
+        alert("Tu n'a pas assez d'argent.")
+      }
+    }
+
     buyHealPot(){
       if ( this.hero.inventaire.gold >= 10) {
-        this.hero.inventaire.potion += 1
+        this.hero.inventaire.potionvie += 1
         this.hero.inventaire.gold -= 10;
       }
       else {

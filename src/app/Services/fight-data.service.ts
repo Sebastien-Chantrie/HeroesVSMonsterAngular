@@ -26,9 +26,24 @@ export class FightDataService {
     this.img = this.monsterCreationService.imagePath;
    }
 
-  heroAttack(): void {
+   heroLaunchSpell(): void {
+
+   }
+
+  heroAttack(attacktype : string): void {
     this.disableUserActions();
-    this.hero.attack(this.monster);
+    if (attacktype == "atk") this.hero.attack(this.monster);
+    if (attacktype == "spell"){
+      console.log(this.hero.mana)
+      if (this.hero.mana >= 50){
+        this.hero.spell(this.monster);
+        this.hero.mana = this.hero.mana - 50
+      }
+      else {
+        this.enableUserActions();
+        return;
+      }
+    }
     this.checkIfIsDead();
     if (this.monster.pointDeVieActuel > 0) {
       setTimeout(() => {
@@ -43,6 +58,7 @@ export class FightDataService {
     }else {
       this.createNextMonster();
       this.enableUserActions();
+      return;
     }
   }
 
@@ -95,9 +111,16 @@ enableUserActions() : void {
   }
   
   healPotion() {
-    if ( this.hero.inventaire.potion != 0){
+    if ( this.hero.inventaire.potionvie != 0){
       this.hero.pointDeVieActuel = this.hero.pointDeVieMaximum;
-      this.hero.inventaire.potion--;
+      this.hero.inventaire.potionvie--;
+    }
+  }
+
+  manaPotion(){
+    if ( this.hero.inventaire.potionmana != 0){
+      this.hero.mana = this.hero.manaMaximum
+      this.hero.inventaire.potionmana--;
     }
   }
 

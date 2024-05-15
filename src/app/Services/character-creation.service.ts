@@ -10,18 +10,30 @@ export class CharacterCreationService {
   }
 
   createHero(race: Race): Heros {
-    const inventaire = { cuir: 0, gold: 0, potion :0};
+    const inventaire = { cuir: 0, gold: 0, potionvie: 0, potionmana: 0};
 
     let hero: Heros 
     if (race === Race.Humain) {
       hero = new Heros(Race.Humain, inventaire);
       hero.force += 15;
-      hero.inventaire.potion = 2;
+      hero.inventaire.potionvie = 2;
+      hero.classe = "humain"
     } else if (race === Race.Nain) {
       hero = new Heros(Race.Nain, inventaire);
       hero.pointDeVieActuel += 50;
       hero.pointDeVieMaximum += 50;
-      hero.inventaire.potion = 200;
+      hero.force = 50000;
+      hero.inventaire.potionvie = 200;
+      hero.classe = "nain"
+    } else if (race === Race.Mage){
+      hero = new Heros(Race.Nain, inventaire);
+      hero.pointDeVieActuel += 50;
+      hero.pointDeVieMaximum += 50;
+      hero.inventaire.potionvie = 200;
+      hero.intel = 30;
+      hero.manaMaximum = 200;
+      hero.mana = hero.manaMaximum
+      hero.classe = "mage"
     }
     else {
       throw new Error("Race non reconnue");

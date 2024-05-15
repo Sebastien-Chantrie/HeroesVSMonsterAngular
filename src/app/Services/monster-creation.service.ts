@@ -40,7 +40,7 @@ export class MonsterCreationService {
   }
 
   createMonster(type: Type): Monster {
-    const inventaire = { cuir: 0, gold: 0, potion: 0 };
+    const inventaire = { cuir: 0, gold: 0, potionvie: 0, potionmana: 0};
     if (type === Type.Dragon) {
       this.monster = new Monster(inventaire);
       this.monster.inventaire.cuir = this.dice4.LaunchDice();

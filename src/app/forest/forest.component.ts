@@ -31,16 +31,23 @@ export class fight {
   calculateHealthBarWidthHero(): string {
     return ((this.hero.pointDeVieActuel / this.hero.pointDeVieMaximum) * 100) + '%';
   }
+  calculateManaBarWidthHero() : string {
+    return ((this.hero.mana / this.hero.manaMaximum) * 100) + '%';
+  }
   calculateHealthBarWidthMonster(): string {
     return ((this.monster.pointDeVieActuel / this.monster.pointDeVieMaximum) * 100) + '%'; 
   }
 
-  onHeroAttack(): void {
-    this.fightDataService.heroAttack();
+  onHeroAttack(typeattack: string): void {
+    this.fightDataService.heroAttack(typeattack);
   }
 
   onHealPotion(): void {
     this.fightDataService.healPotion();
+  }
+
+  onManaPotion() : void {
+    this.fightDataService.manaPotion();
   }
 }
 

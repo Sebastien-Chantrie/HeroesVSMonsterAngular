@@ -18,7 +18,8 @@ class DonjonStateRoom1 implements DonjonState {
   monster = new Monster({
     cuir : 0,
     gold : 0,
-    potion: 0,
+    potionvie : 0,
+    potionmana: 0
   });
   constructor(){
     this.monster.pointDeVieActuel = 100;
@@ -33,7 +34,8 @@ class DonjonStateRoom2 implements DonjonState {
   monster = new Monster({
     cuir : 0,
     gold : 0,
-    potion: 0,
+    potionvie : 0,
+    potionmana: 0
   });
   constructor(){
     this.monster.pointDeVieActuel = 150;
@@ -48,7 +50,8 @@ class DonjonStateRoom3 implements DonjonState {
   monster = new Monster({
     cuir : 0,
     gold : 0,
-    potion: 0,
+    potionvie : 0,
+    potionmana: 0
   });
   constructor(){
     this.monster.pointDeVieActuel = 200;
@@ -63,7 +66,8 @@ class DonjonStateRoom4 implements DonjonState {
   monster = new Monster({
     cuir : 0,
     gold : 0,
-    potion: 0,
+    potionvie : 0,
+    potionmana: 0
   });
   constructor(){
     this.monster.pointDeVieActuel = 300;
@@ -78,7 +82,8 @@ class DonjonStateRoom5 implements DonjonState {
   monster = new Monster({
     cuir : 0,
     gold : 0,
-    potion: 0,
+    potionvie : 0,
+    potionmana: 0
   });
   constructor(){
     this.monster.pointDeVieActuel = 500;
