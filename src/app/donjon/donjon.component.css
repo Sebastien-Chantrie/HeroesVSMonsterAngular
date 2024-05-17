@@ -78,6 +78,25 @@ body, html {
     transition: width 0.3s ease-in-out;
 }
 
+.mana-bar {
+    width: 75vw !important;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    margin-right:2vw;
+    margin-left:2vw;
+    margin-top:4vw;
+}
+
+.mana-bar-fill {
+    height: 100%;
+    background-color: blue;
+    border-radius: 5px;
+    width: 100%;
+    transition: width 0.3s ease-in-out;
+}
+
 .characimg {
     width: 250px;
     height: auto;

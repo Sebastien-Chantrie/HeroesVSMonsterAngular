@@ -8,13 +8,20 @@
   <div class="menu">
       <button class="action-button" (click)="onHeroAttack('atk')">Attaque</button>
       <button *ngIf="this.hero.classe === 'mage'" class="action-button" (click)="onHeroAttack('spell')">Lancer un sort</button>
-      <button *ngIf="this.hero.classe === 'mage'" class="action-button">Potion de mana</button>
+      <button *ngIf="this.hero.classe === 'mage'" class="action-button"  (click)="onManaPotion()">Potion de mana</button>
       <button class="action-button" (click)="onHealPotion()">Potion de soin</button>
   </div>
   <div class="hero">    
-      <img src="../../assets/hero.png" class="characimg">
+    <img *ngIf="this.hero.classe === 'mage'" src="../../assets/mage.png" class="characimg">
+    <img *ngIf="this.hero.classe != 'mage'" src="../../assets/hero.png" class="characimg">
       <span class="level">level : {{this.hero.level}}</span>
-      <div class="nbpotion"><img src="../../assets/healpot.png" class="healpot">x {{ hero.inventaire.potionvie }}</div>
+      <div class="nbpotion">
+        <img src="../../assets/healpot.png" class="healpot">x {{ hero.inventaire.potionvie }}
+        <span  *ngIf="this.hero.classe === 'mage'">
+            <img *ngIf="this.hero.classe === 'mage'" src="../../assets/manapot.png" class="healpot"> x {{ hero.inventaire.potionmana}}
+        </span>
+    
+    </div>
       <div class="health-bar">
           <div class="health-bar-fill" [style.width]="calculateHealthBarWidthHero()"></div>
       </div>

@@ -7,14 +7,14 @@
                 </p> 
             </div>
             <div class="action">
-                <button (click)="buyHealPot()">Acheter potion  10 <img src="../../assets/gold.png" class="goldmin"></button>
-                <button *ngIf="this.hero.classe === 'mage'"  (click)="buyManaPot()">Acheter potion 10</button>
+                <button (click)="buyHealPot()">Acheter potion de vie  10 <img src="../../assets/gold.png" class="goldmin"></button>
+                <button *ngIf="this.hero.classe === 'mage'"  (click)="buyManaPot()">Acheter potion de mana 10</button>
                 <button (click)="sellLeather()">Vendre Cuir  5 <img src="../../assets/gold.png" class="goldmin"></button>
                 <button (click)="returnPlateau()">Partir</button>
             </div>
             <div class="displayinventory">
                 <span class="nbpotion"><img src="../../assets/healpot.png" class="healpot">x {{ hero.inventaire.potionvie }}</span>
-                <span *ngIf="this.hero.classe === 'mage'" >popo manax {{ hero.inventaire.potionvie }}</span>
+                <span *ngIf="this.hero.classe === 'mage'" ><img src="../../assets/manapot.png" class="healpot">x {{ hero.inventaire.potionmana }}</span>
                 <span class="nbgold"><img src="../../assets/gold.png" class="gold"> x {{hero.inventaire.gold}}</span>
                 <span class="nbleather"><img src="../../assets/leather.png" class="leather"> x {{hero.inventaire.cuir}}</span>
             </div>

@@ -62,8 +62,6 @@ export abstract class Entity {
         cible.pointDeVieActuel -= damage;
     }
 
-
-
     Modificator(stats:number) : number {
     if (stats < 5) {
         return stats - 1;

@@ -13,9 +13,17 @@
         <button class="action-button" (click)="onTryToLeave()">Fuite</button>
     </div>
     <div class="hero">    
-        <img src="../../assets/hero.png" class="characimg">
+        <img *ngIf="this.hero.classe === 'mage'" src="../../assets/mage.png" class="characimg">
+        <img *ngIf="this.hero.classe != 'mage'" src="../../assets/hero.png" class="characimg">
         <span class="level">level : {{this.hero.level}}</span>
-        <div class="nbpotion"><img src="../../assets/healpot.png" class="healpot">x {{ hero.inventaire.potionvie }}</div>
+        <div class="nbpotion">
+            <span>
+                <img src="../../assets/healpot.png" class="healpot"> {{ hero.inventaire.potionvie }}
+            </span>
+            <span  *ngIf="this.hero.classe === 'mage'">
+                <img *ngIf="this.hero.classe === 'mage'" src="../../assets/manapot.png" class="healpot"> {{ hero.inventaire.potionmana}}
+            </span>
+        </div>
         <div class="health-bar">
             <div class="health-bar-fill" [style.width]="calculateHealthBarWidthHero()"></div>
         </div>

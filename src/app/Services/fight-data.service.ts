@@ -95,12 +95,25 @@ enableUserActions() : void {
 
   levelUp(){
     if (this.hero.xp >= this.hero.nbXpForLevelUp) {
+      if ( this.hero.classe == "nain") {
+          this.hero.pointDeVieMaximum *= 2;
+          this.hero.pointDeVieActuel *= 2;
+          this.hero.force += 5;
+        }
+    
+      else if ( this.hero.classe == "humain"){
+        this.hero.pointDeVieMaximum += 30;
+        this.hero.pointDeVieActuel += 30;
+        this.hero.force += 10;
+      }
+      else {
+        this.hero.pointDeVieMaximum += 20;
+        this.hero.pointDeVieActuel += 20;
+        this.hero.intel += 10;
+      }
+      this.hero.level += 1;
       this.hero.nbXpForLevelUp *= 2;
       this.hero.xp = 0;
-      this.hero.level += 1;
-      this.hero.pointDeVieMaximum*2;
-      this.hero.pointDeVieActuel*2;
-      this.hero.force*2;
     }
   }
 
